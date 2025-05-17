@@ -3,6 +3,7 @@ package com.trabalho.pelegrin.hibernate;
 import db.CreateDB;
 import model.Product;
 import model.Supplier;
+import repository.ProductRepository;
 import repository.SupplierRepository;
 import util.JPAUtil;
 
@@ -17,9 +18,12 @@ public class HibernateApplication {
 		CreateDB.createDatabase();
 
 		SupplierRepository supplierRepository = new SupplierRepository();
+		ProductRepository productRepository = new ProductRepository();
 
-		List<Supplier> list = supplierRepository.listAll();
-		list.forEach(System.out::println);
+		List<Product> products = productRepository.listAll();
+		List<Supplier> suppliers = supplierRepository.listAll();
+		suppliers.forEach(System.out::println);
+		products.forEach(System.out::println);
 
 	}
 }
