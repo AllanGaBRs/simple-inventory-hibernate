@@ -1,33 +1,35 @@
 package model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-public class Person {
+public class Supplier {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String name;
 
-    private String email;
+    @OneToMany(mappedBy = "supplier")
+    private List<Product> products = new ArrayList<>();
 
-    public Person(){
+    public Supplier(){
 
     }
 
-    public Person(Integer id, String name, String email) {
+    public Supplier(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.email = email;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -39,20 +41,19 @@ public class Person {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void addProduct(Product p) {
+        products.add(p);
     }
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Supplier{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 }
