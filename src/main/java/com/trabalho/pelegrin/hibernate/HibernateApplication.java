@@ -1,5 +1,6 @@
 package com.trabalho.pelegrin.hibernate;
 
+import db.CreateDB;
 import model.Person;
 
 import javax.persistence.EntityManager;
@@ -9,6 +10,7 @@ import javax.persistence.Persistence;
 public class HibernateApplication {
 
 	public static void main(String[] args) {
+		CreateDB.createDatabase();
 		Person p = new Person();
 		p.setName("allanfdb");
 		p.setEmail("allan@gmail");
