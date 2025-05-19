@@ -1,4 +1,6 @@
-package db;
+package db.functions;
+
+import db.exceptions.DBException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,15 +1,14 @@
 package com.trabalho.pelegrin.hibernate;
 
-import db.CreateDB;
+import db.functions.CreateDB;
 import model.Product;
 import model.Supplier;
 import repository.ProductRepository;
 import repository.SupplierRepository;
+import service.ProductService;
 import util.JPAUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.List;
 
 public class HibernateApplication {
@@ -19,11 +18,24 @@ public class HibernateApplication {
 
 		SupplierRepository supplierRepository = new SupplierRepository();
 		ProductRepository productRepository = new ProductRepository();
+		ProductService productService = new ProductService();
 
-		List<Product> products = productRepository.listAll();
-		List<Supplier> suppliers = supplierRepository.listAll();
-		suppliers.forEach(System.out::println);
-		products.forEach(System.out::println);
+		Supplier s1 = new Supplier();
+		s1.setName("ed");
+		supplierRepository.save(s1);
+
+		Product p1 = new Product();
+		p1.setName("Tv");
+		p1.setPrice(10.0);
+		p1.setSupplier(s1);
+		productService.save(p1);
+
+		Product p2 = new Product();
+		p1.setName("Tv");
+		p1.setPrice(100.0);
+		p1.setSupplier(s1);
+		productService.save(p2);
+
 
 	}
 }
