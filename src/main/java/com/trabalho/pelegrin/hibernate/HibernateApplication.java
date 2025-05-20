@@ -19,14 +19,12 @@ public class HibernateApplication {
 
 		SupplierService supplierService = new SupplierService();
 		ProductService productService = new ProductService();
-
-		Supplier s1 = new Supplier();
-		s1.setName("eduardo");
+		SupplierRepository supplierRepository = new SupplierRepository();
 
 		Product p1 = new Product();
 		p1.setName("Tvvsddasdjjja");
 		p1.setPrice(10.0);
-		p1.setSupplier(s1);
+		p1.setSupplier(supplierRepository.findByName("eduardo"));
 		productService.save(p1);
 
 	}

@@ -4,6 +4,8 @@ import model.Product;
 import repository.ProductRepository;
 import validator.ProductValidator;
 
+import java.util.List;
+
 public class ProductService {
 
     private final ProductRepository productRepository;
@@ -17,5 +19,13 @@ public class ProductService {
     public void save(Product product){
         productValidator.validate(product);
         productRepository.save(product);
+    }
+
+    public Product findByName(String name){
+        return productRepository.findByName(name);
+    }
+
+    public List<Product> listAll(){
+        return productRepository.listAll();
     }
 }
