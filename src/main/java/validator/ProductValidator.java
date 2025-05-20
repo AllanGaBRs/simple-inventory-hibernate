@@ -16,7 +16,7 @@ public class ProductValidator {
 
     public void validate(Product product){
         if(existsProduct(product)){
-            throw new DuplicateException("Produto já cadastrado");
+            throw new DuplicateException("Produto " + product.getName() + " já cadastrado ");
         }
     }
 

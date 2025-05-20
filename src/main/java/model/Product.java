@@ -42,6 +42,9 @@ public class Product {
     }
 
     public void setSupplier(Supplier supplier) {
+        if (supplier == null) {
+            throw new IllegalArgumentException("Fornecedor é obrigatório.");
+        }
         this.supplier = supplier;
     }
 
@@ -50,6 +53,9 @@ public class Product {
     }
 
     public void setPrice(Double price) {
+        if(price < 0.1){
+            throw new IllegalArgumentException("Preço deve ser maior que 0.1");
+        }
         this.price = price;
     }
 
@@ -58,7 +64,10 @@ public class Product {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name.isEmpty()){
+            throw new IllegalArgumentException("O campo 'Nome' não pode ser vazio");
+        }
+        this.name = name.toUpperCase().trim();
     }
 
     @Override

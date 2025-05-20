@@ -11,6 +11,7 @@ public class Supplier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "supplier")
@@ -38,7 +39,10 @@ public class Supplier {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name.trim().isEmpty()) {
+            throw new IllegalArgumentException("O nome do fornecedor é obrigatório.");
+        }
+        this.name = name.trim().toUpperCase();this.name = name.toUpperCase();
     }
 
     public List<Product> getProducts() {
@@ -46,7 +50,16 @@ public class Supplier {
     }
 
     public void addProduct(Product p) {
-        products.add(p);
+        if (p == null) {
+            throw new IllegalArgumentException("Produto não pode ser nulo.");
+        }
+        if (p.getName() == null || p.getName().trim().isEmpty()) {
+            throw new IllegalArgumentException("Produto inválido: nome está vazio.");
+        }
+        if (p.getPrice() < 0) {
+            throw new IllegalArgumentException("Produto inválido: preço negativo.");
+        }
+        products.add(p);products.add(p);
     }
 
     @Override

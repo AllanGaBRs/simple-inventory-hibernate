@@ -1,5 +1,6 @@
 package repository;
 
+import model.Product;
 import model.Supplier;
 import util.JPAUtil;
 
@@ -21,5 +22,19 @@ public class SupplierRepository {
         return em
                 .createQuery("from Supplier", Supplier.class)
                 .getResultList();
+    }
+
+    public Supplier findByName(String name) {
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            return em.createQuery(
+                            "SELECT s FROM Supplier s WHERE s.name = :name", Supplier.class)
+                    .setParameter("name", name)
+                    .getResultStream()
+                    .findFirst()
+                    .orElse(null);
+        } finally {
+            em.close();
+        }
     }
 }

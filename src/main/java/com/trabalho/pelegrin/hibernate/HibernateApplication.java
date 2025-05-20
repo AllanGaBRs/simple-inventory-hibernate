@@ -6,6 +6,7 @@ import model.Supplier;
 import repository.ProductRepository;
 import repository.SupplierRepository;
 import service.ProductService;
+import service.SupplierService;
 import util.JPAUtil;
 
 import javax.persistence.EntityManager;
@@ -16,26 +17,17 @@ public class HibernateApplication {
 	public static void main(String[] args) {
 		CreateDB.createDatabase();
 
-		SupplierRepository supplierRepository = new SupplierRepository();
-		ProductRepository productRepository = new ProductRepository();
+		SupplierService supplierService = new SupplierService();
 		ProductService productService = new ProductService();
 
 		Supplier s1 = new Supplier();
-		s1.setName("ed");
-		supplierRepository.save(s1);
+		s1.setName("eduardo");
 
 		Product p1 = new Product();
-		p1.setName("Tv");
+		p1.setName("Tvvsddasdjjja");
 		p1.setPrice(10.0);
 		p1.setSupplier(s1);
 		productService.save(p1);
-
-		Product p2 = new Product();
-		p1.setName("Tv");
-		p1.setPrice(100.0);
-		p1.setSupplier(s1);
-		productService.save(p2);
-
 
 	}
 }
