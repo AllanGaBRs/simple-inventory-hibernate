@@ -34,6 +34,6 @@ public class ProductService {
     }
 
     public void update(String name, String futureName){
-        productRepository.update(name, futureName);
+        productRepository.update(name.toUpperCase(), futureName.toUpperCase());
     }
 }

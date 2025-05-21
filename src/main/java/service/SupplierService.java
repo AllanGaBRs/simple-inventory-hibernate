@@ -34,7 +34,7 @@ public class SupplierService {
     }
 
     public void update(String name, String futureName){
-        supplierRepository.update(name, futureName);
+        supplierRepository.update(name.toUpperCase(), futureName.toUpperCase());
     }
 
 }
