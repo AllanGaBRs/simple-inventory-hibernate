@@ -29,4 +29,12 @@ public class SupplierService {
         return supplierRepository.listAll();
     }
 
+    public void remove(String name){
+        supplierRepository.remove(name);
+    }
+
+    public void update(String name, String futureName){
+        supplierRepository.update(name, futureName);
+    }
+
 }

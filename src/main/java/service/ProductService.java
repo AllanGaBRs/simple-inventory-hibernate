@@ -28,4 +28,12 @@ public class ProductService {
     public List<Product> listAll(){
         return productRepository.listAll();
     }
+
+    public void remove(String name){
+        productRepository.removeByName(name);
+    }
+
+    public void update(String name, String futureName){
+        productRepository.update(name, futureName);
+    }
 }
