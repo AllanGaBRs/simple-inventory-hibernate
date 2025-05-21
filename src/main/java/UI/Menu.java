@@ -45,7 +45,7 @@ public class Menu {
                 }
 
             } catch (Exception e) {
-                System.out.println("ERRO: Entrada inválida. Tente novamente.");
+                System.out.println("ERRO: " + e.getMessage() + " Tente novamente.");
             }
         } while (option != 0);
 
