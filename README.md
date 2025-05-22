@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Fornecedores e Produtos
 
-Este projeto é um sistema simples de cadastro e gerenciamento de fornecedores e produtos para o trabalho da matéria **Desevolvimento Baseado em Padrões e Frameworks**, desenvolvido utilizando **Java com Hibernate (apenas Hibernate, sem frameworks adicionais)** para persistência de dados em banco de dados relacional.
+Este projeto é um sistema simples de cadastro e gerenciamento de fornecedores e produtos para o trabalho da matéria **Desevolvimento Baseado em Padrões e Frameworks**, desenvolvido utilizando **Java com Hibernate** para persistência de dados em banco de dados relacional.
 
 ## 🏗️ Tecnologias utilizadas
 
@@ -43,9 +43,7 @@ O sistema possui validações básicas para garantir a integridade dos dados:
 
 - **Não é permitido cadastrar dois fornecedores com o mesmo nome.**
 - **Não é permitido cadastrar dois produtos com o mesmo nome. (mesmo que de fornecedores diferentes)**
-
-Caso tente cadastrar um produto ou fornecedor com um nome já existente no banco de dados, o sistema exibirá uma mensagem informando que o nome já está cadastrado.
-
+- **Não é permitido excluir um fornecedor que tenha produtos cadastrados**
 
 ## 🔧 Configuração do Banco de Dados
 
